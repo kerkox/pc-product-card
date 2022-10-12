@@ -5,9 +5,7 @@ import { product2 } from '../data/products';
 
 describe('ProductImage', () => {
   test('debe de mostrar el componente correctamente con la imagen personalizada', () => {
-    const wrapper = renderer.create(
-      <ProductImage img="https://img.jpg" />
-    );
+    const wrapper = renderer.create(<ProductImage img="https://img.jpg" />);
     expect(wrapper.toJSON()).toMatchSnapshot();
   });
 

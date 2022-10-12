@@ -1,15 +1,15 @@
-import styles from "../styles/styles.module.css";
+import styles from '../styles/styles.module.css';
 
 // import { useState } from "react";
-import { useProduct } from "../hooks/useProduct";
-import React, { createContext } from "react";
+import { useProduct } from '../hooks/useProduct';
+import React, { createContext } from 'react';
 import {
   InitialValues,
   onChangeArgs,
   Product,
   ProductCardHandlers,
   ProductContextProps,
-} from "../interfaces/interfaces";
+} from '../interfaces/interfaces';
 
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
@@ -17,12 +17,12 @@ const { Provider } = ProductContext;
 export interface ProductCardProps {
   product: Product;
   // children?: React.ReactElement | React.ReactElement[];
-  children: (args: ProductCardHandlers) => JSX.Element,
+  children: (args: ProductCardHandlers) => JSX.Element;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (args: onChangeArgs) => void;
-  value?:number,
-  initialValues?: InitialValues
+  value?: number;
+  initialValues?: InitialValues;
 }
 
 export const ProductCard = ({
@@ -32,9 +32,15 @@ export const ProductCard = ({
   style,
   onChange,
   value,
-  initialValues
+  initialValues,
 }: ProductCardProps) => {
-  const { counter, increaseBy, maxCount, isMaxCountReached, reset } = useProduct({ product, onChange, value, initialValues });
+  const {
+    counter,
+    increaseBy,
+    maxCount,
+    isMaxCountReached,
+    reset,
+  } = useProduct({ product, onChange, value, initialValues });
 
   return (
     <Provider
@@ -42,7 +48,7 @@ export const ProductCard = ({
         counter,
         increaseBy,
         product,
-        maxCount
+        maxCount,
       }}
     >
       <div className={`${styles.productCard} ${className}`} style={style}>
@@ -52,10 +58,9 @@ export const ProductCard = ({
           maxCount: initialValues?.maxCount,
           product,
           increaseBy,
-          reset
+          reset,
         })}
       </div>
     </Provider>
   );
 };
-
