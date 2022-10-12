@@ -16,18 +16,15 @@ export const useProduct = ({
 }: useProductArgs) => {
 
   const [counter, setCounter] = useState<number>(initialValues?.count || value);
-  console.log(initialValues?.count);
-  
   const isMounted = useRef(false);
 
   const increaseBy = (value: number) => {
     const newValue = Math.max(counter + value, 0);
     const maxCount = initialValues?.maxCount || 0;
-    if(newValue > maxCount) return;
+    
+    if(maxCount > 0 && newValue > maxCount) return;
     
     setCounter(newValue);
-    console.log(`%cnew Value: ${newValue}`, "color:pink;");
-
     onChange && onChange({ count: newValue, product });
   };
 
