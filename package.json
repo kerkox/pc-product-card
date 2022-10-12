@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "1.0.0-rc",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -7,6 +7,11 @@
     "dist",
     "src"
   ],
+  "repository": {
+    "url": "https://github.com/kerkox/pc-product-card",
+    "type":"git"
+  },
+  "homepage": "https://paulcortes.dev",
   "engines": {
     "node": ">=14"
   },
